@@ -113,19 +113,14 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64"
+export JAVA_HOME=/usr/lib/jvm/java-8-oracle-amd64
+export IMPALA_HOME=${HOME}/workspace/Impala
+export BOOST_LIBRARYDIR=/usr/lib/x86_64-linux-gnu
 export LC_ALL="en_US.UTF-8"
-export IMPALA_HOME="${HOME}/workspace/Impala"
-export BOOST_LIBRARYDIR="/usr/lib/x86_64-linux-gnu"
 export USE_GOLD_LINKER=true
 
-export M2_HOME="/usr/local/apache-maven-3.5.0"
-export M2="${M2_HOME}/bin"
-export PATH=${M2}:${PATH}
-PATH=/opt/dita-ot-2.3.3/bin:"${PATH}"
-
 alias mariadb='mysql -u jc -pjc jc'
-branch-master() {
+gitcheckout() {
   git fetch asf-gerrit && git checkout -b $1 asf-gerrit/master
 }
-alias "rebase-master"="git fetch asf-gerrit && git rebase -i asf-gerrit/master"
+alias "gitrebase"="git fetch asf-gerrit && git rebase -i asf-gerrit/master"

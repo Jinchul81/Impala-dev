@@ -14,7 +14,7 @@ startup_message off
 # Display the status line at the bottom
 hardstatus on
 hardstatus alwayslastline
-hardstatus string "%{.kW}%-w%{.bW}%t [%n]%{-}%+w %=%{..G} %H %{..Y} %Y/%m/%d %c"
+hardstatus string '%{= Kd} %{= Kd}%-w%{= Kr}[%{= KW}%n %t%{= Kr}]%{= Kd}%+w %-= %{KG} %H%{KW}|%{KY}%101`%{KW}|%D %M %d %Y%{= Kc} %C%A%{-}'
 
 # Setup screens
 screen -t 'src' 0 bash
