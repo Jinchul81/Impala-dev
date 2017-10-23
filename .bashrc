@@ -124,3 +124,5 @@ gitcheckout() {
   git fetch asf-gerrit && git checkout -b $1 asf-gerrit/master
 }
 alias "gitrebase"="git fetch asf-gerrit && git rebase -i asf-gerrit/master"
+alias "gitpush"="git push --no-thin asf-gerrit HEAD:refs/for/master"
+alias "gitpushdraft"="git push --no-thin asf-gerrit HEAD:refs/drafts/master"
