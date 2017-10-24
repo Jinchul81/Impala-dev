@@ -118,11 +118,12 @@ export IMPALA_HOME=${HOME}/workspace/Impala
 export BOOST_LIBRARYDIR=/usr/lib/x86_64-linux-gnu
 export LC_ALL="en_US.UTF-8"
 export USE_GOLD_LINKER=true
+export PATH=${HOME}/bin:${PATH}
 
 alias mariadb='mysql -u jc -pjc jc'
 gitcheckout() {
   git fetch asf-gerrit && git checkout -b $1 asf-gerrit/master
 }
-alias "gitrebase"="git fetch asf-gerrit && git rebase -i asf-gerrit/master"
-alias "gitpush"="git push --no-thin asf-gerrit HEAD:refs/for/master"
-alias "gitpushdraft"="git push --no-thin asf-gerrit HEAD:refs/drafts/master"
+alias gitrebase="git fetch asf-gerrit && git rebase -i asf-gerrit/master"
+alias gitpush="git push --no-thin asf-gerrit HEAD:refs/for/master"
+alias gitpushdraft="git push --no-thin asf-gerrit HEAD:refs/drafts/master"
