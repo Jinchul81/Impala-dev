@@ -113,12 +113,16 @@ if ! shopt -oq posix; then
   fi
 fi
 
+alias sshubuntu16='ssh jinchulkim@172.23.146.1'
+alias sftpubuntu16='sftp jinchulkim@172.23.146.1'
+
 export JAVA_HOME=/usr/lib/jvm/java-8-oracle-amd64
 export IMPALA_HOME=${HOME}/workspace/Impala
 export BOOST_LIBRARYDIR=/usr/lib/x86_64-linux-gnu
 export LC_ALL="en_US.UTF-8"
 export USE_GOLD_LINKER=true
-export PATH=${HOME}/bin:${PATH}
+export PATH=${HOME}/bin:${HOME}/workspace/bin:${PATH}
+export CLASSPATH=${HOME}/workspace/jars
 
 alias mariadb='mysql -u jc -pjc jc'
 gitcheckout() {
@@ -127,3 +131,15 @@ gitcheckout() {
 alias gitrebase="git fetch asf-gerrit && git rebase -i asf-gerrit/master"
 alias gitpush="git push --no-thin asf-gerrit HEAD:refs/for/master"
 alias gitpushdraft="git push --no-thin asf-gerrit HEAD:refs/drafts/master"
+alias git_remote_add_asf_gerrit="git remote add asf-gerrit ssh://Jinchul81@gerrit.cloudera.org:29418/Impala-ASF"
+checklength() {
+  perl -nle 'print if length$_>90' $1
+}
+clangformat() {
+  git diff -U0 --no-color HEAD^ | clang-format-diff-3.9 -p1 -i
+}
+
+alias cds='cd ${IMPALA_HOME}'
+alias cdbe='cd ${IMPALA_HOME}/be/src'
+alias cdfe='cd ${IMPALA_HOME}/fe'
+alias cdcommon='cd ${IMPALA_HOME}/common'

@@ -22,9 +22,9 @@ screen -t 'src' 1 bash
 screen -t 'src' 2 bash
 screen -t 'src' 3 bash
 screen -t 'gdb' 4 bash
-screen -t 'build' 5 bash
+screen -t 'shell' 5 bash
 screen -t 'build' 6 bash
-screen -t 'test' 7 bash
+screen -t 'gtest' 7 bash
 screen -t 'test' 8 bash
 screen -t 'test' 9 bash
 screen -t 'root' 10 bash
