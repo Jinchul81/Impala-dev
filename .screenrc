@@ -28,6 +28,8 @@ screen -t 'gtest' 7 bash
 screen -t 'test' 8 bash
 screen -t 'test' 9 bash
 screen -t 'root' 10 bash
+screen -t 'psql' 11 bash
+screen -t 'mariadb' 12 bash
 
 # Switch to the workspace screen
 select 2

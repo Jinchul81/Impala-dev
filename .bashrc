@@ -37,7 +37,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color) color_prompt=yes;;
+    xterm-color|*-256color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -84,6 +84,9 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+# colored GCC warnings and errors
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -113,16 +116,21 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# removal of strange characters on vim
+# http://vim.wikia.com/wiki/Backspace_and_delete_problems
+stty erase '^?'
+
 alias sshubuntu16='ssh jinchulkim@172.23.146.1'
 alias sftpubuntu16='sftp jinchulkim@172.23.146.1'
 
 export JAVA_HOME=/usr/lib/jvm/java-8-oracle-amd64
-export IMPALA_HOME=${HOME}/workspace/Impala
+export IMPALA_HOME=${HOME}/Impala
 export BOOST_LIBRARYDIR=/usr/lib/x86_64-linux-gnu
 export LC_ALL="en_US.UTF-8"
 export USE_GOLD_LINKER=true
-export PATH=${HOME}/bin:${HOME}/workspace/bin:${PATH}
 export CLASSPATH=${HOME}/workspace/jars
+export DITA_HOME=${HOME}/workspace/dita-ot-3.0
+export PATH=${HOME}/bin:${HOME}/workspace/bin:${DITA_HOME}/bin:${HOME}/workspace/tidy-html5/build/cmake:${PATH}
 
 alias mariadb='mysql -u jc -pjc jc'
 gitcheckout() {
@@ -143,3 +151,4 @@ alias cds='cd ${IMPALA_HOME}'
 alias cdbe='cd ${IMPALA_HOME}/be/src'
 alias cdfe='cd ${IMPALA_HOME}/fe'
 alias cdcommon='cd ${IMPALA_HOME}/common'
+export IMPALA_HOME=/home/jinchulkim/Impala
